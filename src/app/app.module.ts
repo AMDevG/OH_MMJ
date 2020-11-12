@@ -14,6 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { DaysCalculatorComponent } from './components/days-calculator/days-calculator.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialModule } from './angular-material.module';
 
 
 // Font awesome imports
@@ -53,7 +54,17 @@ library.add(faHeart, faMugHot,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule, ReactiveFormsModule,
+    BrowserModule,
+    FontAwesomeModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
   ],
   providers: [
     MatDatepickerModule],
