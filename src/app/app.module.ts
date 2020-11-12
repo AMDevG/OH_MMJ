@@ -21,7 +21,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 
-import { AuthService } from './auth.service';
+import { AuthService } from './services/auth.service';
 
 
 // Font awesome imports
