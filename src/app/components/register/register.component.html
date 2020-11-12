@@ -1,1 +1,5 @@
-<p>register works!</p>
+
+<h5>Please select the issue date on your MM Card</h5>
+<input matInput [matDatepicker]="picker">
+<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+<mat-datepicker #picker></mat-datepicker>

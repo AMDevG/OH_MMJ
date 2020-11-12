@@ -12,7 +12,7 @@ export class DaysCalculatorComponent implements OnInit {
   issueDate : Date = new Date();
  
   // expirationDate : Date = new Date();
-  FILL_DAYS = 45;
+  FILL_DAYS = 44;
   FILL_MILLS = this.FILL_DAYS *  24 * 60 * 60 * 1000;
   nextFill: Date = new Date();
   fillDateStr : String;

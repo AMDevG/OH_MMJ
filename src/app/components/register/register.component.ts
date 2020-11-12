@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
+  issueDate: String;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  setProfile(){
+    console.log("Calling User service to set profile data");
   }
 
 }
