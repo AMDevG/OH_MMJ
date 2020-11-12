@@ -1,44 +1,39 @@
-<!-- Toolbar -->
-<mat-toolbar color="primary" class="app-header">
-    <span class="nav-tool-items">
-      <a mat-button routerLink="/login" routerLinkActive="active" layout-align="end end">Log in</a>
-      <!-- <a mat-button mat-raised-button routerLink="/register" routerLinkActive="active">Register</a> -->
-    </span>
-  </mat-toolbar>
-  <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
-    <form [formGroup]="loginForm" (submit)="login()"
-          class="form"
-          fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center center">
-      <mat-card class="card">
-        <mat-card-header class="card-header" fxLayout.gt-xs="row" fxLayout.xs="column">
-          <mat-card-title class="card-title">
-            <div mat-card-avatar></div>
-            <span>Login</span>
-          </mat-card-title>
-        </mat-card-header>
-  
-        <mat-card-content>
-          <mat-form-field class="item">
-            <input matInput placeholder="Username" formControlName="username" required>
-            <mat-error *ngIf="loginForm.controls.username.hasError('required')">
-              Please enter your login
-            </mat-error>
-            <mat-error *ngIf="loginForm.controls.username.hasError('noEmail')">
-              Username must be an email
-            </mat-error>
-          </mat-form-field>
-  
-          <mat-form-field class="item">
-            <input type="password" matInput placeholder="Password" formControlName="password" required>
-            <mat-error *ngIf="loginForm.controls.password.hasError('required')">
-              Please enter your password
-            </mat-error>
-          </mat-form-field>
-  
-          <div class="submit-button">
-            <button mat-raised-button color="primary" [disabled]="!loginForm.valid">Login</button>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </form>
-  </div>
+<!-- 
+  file-name: app.component.html
+  *****
+  The important code for logging-in, signing-up or logging-out, rest code you can manage yourself based on user login/logout scenerio.
+  *****
+  You can any time check user logging-in/out status in your template using:
+  *ngIf="!(authService.user | async)"
+-->
+
+...
+    <div>
+        <!-- this header tag displays only when user is logged-in -->
+        <h1 *ngIf="authService.user | async">
+	        Welcome User: {{ (authService.user | async)?.email }}!
+        </h1>
+
+		<!-- this div displays only when user is not-logged-in -->
+	    <div *ngIf="!(authService.user | async)">
+            <!-- these input fields takes email and password from user -->
+            <input type="text" [(ngModel)]="email" placeholder="Enter email"/>
+            <input type="password" [(ngModel)]="password" placeholder="Enter password"/>
+
+            <!-- user click this button to signup -->
+            <button (click)="signup()" [disabled]="!email || !password">
+            	Signup
+            </button>
+
+            <!-- user click this button to login -->
+            <button (click)="login()" [disabled]="!email || !password">
+            	Login
+            </button>
+	    </div>
+
+        <!-- user click this button to logout -->
+        <!-- this button displays only when user is logged-in -->
+        <button (click)="logout()" *ngIf="authService.user | async">
+        	Logout
+        </button>
+    </div>
