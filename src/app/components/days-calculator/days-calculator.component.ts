@@ -11,11 +11,12 @@ export class DaysCalculatorComponent implements OnInit {
   startDate = new Date();
 
   issueDate : Date = new Date();
-  expirationDate : Date = new Date();
+  // expirationDate : Date = new Date();
   FILL_DAYS = 45;
   nextFill: Date = new Date();
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit(): void {
   this.startDate.setFullYear(2020);

@@ -34,7 +34,7 @@ import { faMugHot, faHeart,
     faSearch, faWindowClose, faPen,
     faHiking, faCalendarAlt, faArchway, faComments,
     faCogs, faEdit, faTrashAlt, faArrowCircleLeft, faSave,
-    faUpload
+    faUpload, faCalendar, faCalendarPlus, faStopwatch
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faHeart, faMugHot,
@@ -44,7 +44,7 @@ library.add(faHeart, faMugHot,
     faSearch, faWindowClose, faPen,
     faHiking, faCalendarAlt, faArchway, faComments,
     faCogs, faEdit, faTrashAlt, faArrowCircleLeft, faSave,
-    faUpload
+    faUpload, faCalendarPlus, faStopwatch
 );
 
 
