@@ -13,6 +13,7 @@ export class DaysCalculatorComponent implements OnInit {
  
   // expirationDate : Date = new Date();
   FILL_DAYS = 45;
+  FILL_MILLS = this.FILL_DAYS *  24 * 60 * 60 * 1000;
   nextFill: Date = new Date();
   fillDateStr : String;
   daysRemaining: number;
@@ -23,14 +24,12 @@ export class DaysCalculatorComponent implements OnInit {
 
   ngOnInit(): void {
   let today = new Date();
-  this.startDate.setFullYear(2021);
-  this.startDate.setMonth(2);
-  this.startDate.setDate(7);
+  this.startDate.setFullYear(2020);
+  this.startDate.setMonth(10);
+  this.startDate.setDate(3);
 // Need to catch December dates moving into new year
 
-  this.nextFill.setMonth(this.startDate.getMonth() + 1);
-  this.nextFill.setFullYear(this.startDate.getFullYear() + 45);
-  this.nextFill.setFullYear(2020);
+  this.nextFill.setTime(this.startDate.getTime() + this.FILL_MILLS);
   this.fillDateStr = this.nextFill.toLocaleString();
 
 
