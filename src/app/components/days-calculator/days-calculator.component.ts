@@ -10,6 +10,8 @@ export class DaysCalculatorComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
+
   }
 
 }

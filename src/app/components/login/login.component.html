@@ -1,1 +1,44 @@
-<p>login works!</p>
+<!-- Toolbar -->
+<mat-toolbar color="primary" class="app-header">
+    <span class="nav-tool-items">
+      <a mat-button routerLink="/login" routerLinkActive="active" layout-align="end end">Log in</a>
+      <a mat-button mat-raised-button routerLink="/register" routerLinkActive="active">Register</a>
+    </span>
+  </mat-toolbar>
+  <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <form [formGroup]="loginForm" (submit)="login()"
+          class="form"
+          fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center center">
+      <mat-card class="card">
+        <mat-card-header class="card-header" fxLayout.gt-xs="row" fxLayout.xs="column">
+          <mat-card-title class="card-title">
+            <div mat-card-avatar><fa-icon class="card-title-icon" [icon]="['fas', 'sign-in-alt']"></fa-icon></div>
+            <span>Login</span>
+          </mat-card-title>
+        </mat-card-header>
+  
+        <mat-card-content>
+          <mat-form-field class="item">
+            <input matInput placeholder="Username" formControlName="username" required>
+            <mat-error *ngIf="loginForm.controls.username.hasError('required')">
+              Please enter your login
+            </mat-error>
+            <mat-error *ngIf="loginForm.controls.username.hasError('noEmail')">
+              Username must be an email
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="item">
+            <input type="password" matInput placeholder="Password" formControlName="password" required>
+            <mat-error *ngIf="loginForm.controls.password.hasError('required')">
+              Please enter your password
+            </mat-error>
+          </mat-form-field>
+  
+          <div class="submit-button">
+            <button mat-raised-button color="primary" [disabled]="!loginForm.valid">Login</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </form>
+  </div>
