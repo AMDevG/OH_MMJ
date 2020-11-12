@@ -1,39 +1,32 @@
-<!-- 
-  file-name: app.component.html
-  *****
-  The important code for logging-in, signing-up or logging-out, rest code you can manage yourself based on user login/logout scenerio.
-  *****
-  You can any time check user logging-in/out status in your template using:
-  *ngIf="!(authService.user | async)"
--->
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
-...
-    <div>
-        <!-- this header tag displays only when user is logged-in -->
-        <h1 *ngIf="authService.user | async">
-	        Welcome User: {{ (authService.user | async)?.email }}!
-        </h1>
-
-		<!-- this div displays only when user is not-logged-in -->
-	    <div *ngIf="!(authService.user | async)">
-            <!-- these input fields takes email and password from user -->
-            <input type="text" [(ngModel)]="email" placeholder="Enter email"/>
-            <input type="password" [(ngModel)]="password" placeholder="Enter password"/>
-
-            <!-- user click this button to signup -->
-            <button (click)="signup()" [disabled]="!email || !password">
-            	Signup
-            </button>
-
-            <!-- user click this button to login -->
-            <button (click)="login()" [disabled]="!email || !password">
-            	Login
-            </button>
-	    </div>
-
-        <!-- user click this button to logout -->
-        <!-- this button displays only when user is logged-in -->
-        <button (click)="logout()" *ngIf="authService.user | async">
-        	Logout
-        </button>
-    </div>
+    <!-- Header section containing title -->
+    <header class="mdl-layout__header mdl-color-text--white mdl-color--light-blue-700">
+      <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
+        <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--8-col-desktop">
+        </div>
+      </div>
+    </header>
+  
+    <main class="mdl-layout__content mdl-color--grey-100">
+      <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
+  
+        <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+          <div class="mdl-card__title mdl-color--light-blue-600 mdl-color-text--white">
+            <h2 class="mdl-card__title-text">Login</h2>
+          </div>
+          <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+            <p>Enter your email and password below to sign in.</p>
+            <form [formGroup]="loginForm">
+            <input class="mdl-textfield__input" style="display:inline;" [formControl]="loginForm.controls['email']" type="text" id="emailInput" name="email" placeholder="Email"/>
+            &nbsp;&nbsp;&nbsp;
+            <input class="mdl-textfield__input" style="display:inline;" [formControl]="loginForm.controls['password']" type="password" id="passwordInput" name="password" placeholder="Password"/>
+            <br/><br/>
+            <button class="mdl-button mdl-js-button mdl-button--raised" name="signin" type="submit" (click)="doLogin()">Sign In</button>
+            &nbsp;&nbsp;&nbsp;
+          </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>

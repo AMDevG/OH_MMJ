@@ -74,6 +74,7 @@ library.add(faHeart, faMugHot,
     FormsModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [
     MatDatepickerModule,
