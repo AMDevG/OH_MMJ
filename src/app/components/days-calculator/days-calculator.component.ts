@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class DaysCalculatorComponent implements OnInit {
 
   // TEST DATA
-  startDate: Date = new Date("2020-06-02");
+  startDate = new Date();
 
   issueDate : Date = new Date();
   expirationDate : Date = new Date();
@@ -18,11 +18,15 @@ export class DaysCalculatorComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    
-    this.nextFill.setDate(this.startDate.getDate() + this.FILL_DAYS);
-    console.log("Next fill is: " + this.nextFill.toDateString());
+  this.startDate.setFullYear(2020);
+  this.startDate.setMonth(5);
+  this.startDate.setDate(2);
 
-    // PULL DATA FROM CURRENT USER MODEL
+  this.nextFill.setMonth(this.startDate.getMonth() + 1);
+  this.nextFill.setFullYear(this.startDate.getFullYear() + 45);
+  this.nextFill.setFullYear(2020);
+
+  console.log(this.nextFill.toDateString());
 
   }
 
