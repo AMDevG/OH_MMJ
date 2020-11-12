@@ -5,12 +5,16 @@
 		<div class="row">
 
 			<div class="col-lg-3 stats">
-				<i class="large material-icons">loop</i>
+				<i id="refillIcon" class="large material-icons">loop</i>
 				<br>
 				<br>
-				<div class="days-remaining">{{FILL_DAYS}}</div>
+				<div class="days-remaining">{{daysRemaining}}</div>
 				<br>
 				<h5>Days Until Next Fill</h5>
+				<br>
+				<div class="fillDate">{{fillDateStr}}</div>
+				<br>
+				<h5>Next Refill Date</h5>
 			</div>
 		</div>
 		<!-- end row -->
