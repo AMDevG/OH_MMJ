@@ -16,6 +16,13 @@ import { DaysCalculatorComponent } from './components/days-calculator/days-calcu
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
 
+// 1. Import the libs you need
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+
+import { AuthService } from './auth.service';
+
 
 // Font awesome imports
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -50,6 +57,8 @@ library.add(faHeart, faMugHot,
     DaysCalculatorComponent
   ],
   imports: [
+    AngularFireAuthModule,
+    AngularFireModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -67,7 +76,8 @@ library.add(faHeart, faMugHot,
     MatDatepickerModule,
   ],
   providers: [
-    MatDatepickerModule],
+    MatDatepickerModule,
+    AuthService, AngularFireAuthModule],
     // CookieService,
     // {provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true}],
   bootstrap: [AppComponent],
