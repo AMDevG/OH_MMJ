@@ -12,13 +12,8 @@
 
       <mat-card-content>
         <mat-form-field class="item">
-          <input matInput placeholder="Username" formControlName="username" required>
-          <mat-error *ngIf="loginForm.controls.username.hasError('required')">
-            Please enter your login
-          </mat-error>
-          <mat-error *ngIf="loginForm.controls.username.hasError('noEmail')">
-            Username must be an email
-          </mat-error>
+          <input matInput placeholder="Email Address" formControlName="email" required>
+
         </mat-form-field>
 
         <mat-form-field class="item">
@@ -26,7 +21,7 @@
         </mat-form-field>
 
         <div class="submit-button">
-          <button mat-raised-button color="primary" [disabled]="!loginForm.valid" onClick="login">Login</button>
+          <button mat-raised-button color="primary" [disabled]="!loginForm.valid" (click)="doLogin()">Login</button>
         </div>
       </mat-card-content>
     </mat-card>
