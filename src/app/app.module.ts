@@ -25,27 +25,29 @@ import { AuthService } from './services/auth.service';
 
 
 // Font awesome imports
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faMugHot, faHeart,
-    faTh, faThList,
-    faSignInAlt, faUserPlus,
-    faPlaneDeparture, faMapMarked,
-    faSearch, faWindowClose, faPen,
-    faHiking, faCalendarAlt, faArchway, faComments,
-    faCogs, faEdit, faTrashAlt, faArrowCircleLeft, faSave,
-    faUpload, faCalendar, faCalendarPlus, faStopwatch
-} from '@fortawesome/free-solid-svg-icons';
 
-library.add(faHeart, faMugHot,
-    faTh, faThList,
-    faSignInAlt, faUserPlus,
-    faPlaneDeparture, faMapMarked,
-    faSearch, faWindowClose, faPen,
-    faHiking, faCalendarAlt, faArchway, faComments,
-    faCogs, faEdit, faTrashAlt, faArrowCircleLeft, faSave,
-    faUpload, faCalendarPlus, faStopwatch
-);
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faCoffee, fas } from '@fortawesome/free-solid-svg-icons';
+// import { library } from '@fortawesome/fontawesome-svg-core';
+// import { faMugHot, faHeart,
+//     faTh, faThList,
+//     faSignInAlt, faUserPlus,
+//     faPlaneDeparture, faMapMarked,
+//     faSearch, faWindowClose, faPen,
+//     faHiking, faCalendarAlt, faArchway, faComments,
+//     faCogs, faEdit, faTrashAlt, faArrowCircleLeft, faSave,
+//     faUpload, faCalendar, faCalendarPlus, faStopwatch
+// } from '@fortawesome/free-solid-svg-icons';
+
+// library.add(faHeart, faMugHot,
+//     faTh, faThList,
+//     faSignInAlt, faUserPlus,
+//     faPlaneDeparture, faMapMarked,
+//     faSearch, faWindowClose, faPen,
+//     faHiking, faCalendarAlt, faArchway, faComments,
+//     faCogs, faEdit, faTrashAlt, faArrowCircleLeft, faSave,
+//     faUpload, faCalendarPlus, faStopwatch
+// );
 
 
 @NgModule({
@@ -84,4 +86,9 @@ library.add(faHeart, faMugHot,
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIconPacks(fas);
+    library.addIcons(faCoffee);
+ }
+};

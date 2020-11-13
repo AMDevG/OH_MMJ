@@ -33,7 +33,6 @@ export class RegisterComponent implements OnInit {
   setProfile(){
     //NEED TO WRITE THE UUID INTO USER MODEL
     this.authService.signup(this.registerForm.value.email, this.registerForm.value.password);
-    
   }
 
 }
