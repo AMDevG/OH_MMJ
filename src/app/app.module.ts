@@ -28,6 +28,7 @@ import { AuthService } from './services/auth.service';
 
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faCoffee, fas } from '@fortawesome/free-solid-svg-icons';
+import { BudFinderComponent } from './bud-finder/bud-finder.component';
 // import { library } from '@fortawesome/fontawesome-svg-core';
 // import { faMugHot, faHeart,
 //     faTh, faThList,
@@ -56,7 +57,8 @@ import { faCoffee, fas } from '@fortawesome/free-solid-svg-icons';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    DaysCalculatorComponent
+    DaysCalculatorComponent,
+    BudFinderComponent
   ],
   imports: [
     AngularFireAuthModule,
