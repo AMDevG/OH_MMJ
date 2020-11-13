@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -7,15 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  issueDate: String;
+  registerForm: any;
 
-  constructor() { }
+  constructor(public authService: AuthService, private router: Router,
+    public fb: FormBuilder,) {
+        this.registerForm = fb.group({
+            email: new FormControl('', Validators.compose([
+                Validators.email,
+                Validators.required
+          ])),
+            password: new FormControl('', Validators.required),
+            firstName: new FormControl('', Validators.required),
+            lastName: new FormControl('', Validators.required),
+            cardIssueDate: new FormControl('', Validators.required),
+            county: new FormControl('', Validators.required),
+
+          })};
 
   ngOnInit(): void {
   }
 
   setProfile(){
-    console.log("Calling User service to set profile data");
+    //NEED TO WRITE THE UUID INTO USER MODEL
+    this.authService.signup(this.registerForm.value.email, this.registerForm.value.password);
+    
   }
 
 }

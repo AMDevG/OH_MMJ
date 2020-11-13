@@ -1,5 +1,24 @@
 
+<div id="registrationBox">
+<form [formGroup]="registerForm">
+    <input class="mdl-textfield__input" style="display:inline;" [formControl]="registerForm.controls['email']" type="email" id="emailInput" name="email" placeholder="Email"/>
+    &nbsp;&nbsp;&nbsp;
+    <input class="mdl-textfield__input" style="display:inline;" [formControl]="registerForm.controls['password']" type="password" id="passwordInput" name="password" placeholder="Password"/>
+    <br/><br/>
+    <input class="mdl-textfield__input" style="display:inline;" [formControl]="registerForm.controls['firstName']" type="text" id="firstName" name="firstName" placeholder="First Name"/>
+    <br/><br/>
+    <input class="mdl-textfield__input" style="display:inline;" [formControl]="registerForm.controls['lastName']" type="text" id="lastName" name="lastName" placeholder="Last Name"/>
+    <br/><br/>
+    <input class="mdl-textfield__input" style="display:inline;" [formControl]="registerForm.controls['county']" type="text" id="county" name="county" placeholder="County"/>
+    <br/><br/>
+
 <h5>Please select the issue date on your MM Card</h5>
-<input matInput [matDatepicker]="picker">
+<input matInput [matDatepicker]="picker" [formControl]="registerForm.controls['cardIssueDate']">
 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
 <mat-datepicker #picker></mat-datepicker>
+
+<button class="mdl-button mdl-js-button mdl-button--raised" name="signin" type="submit" (click)="setProfile()">Register</button>
+&nbsp;&nbsp;&nbsp;
+
+</form>
+</div>
