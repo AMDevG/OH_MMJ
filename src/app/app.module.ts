@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import {BudFinderComponent} from './components/bud-finder/bud-finder.component';
 import { DaysCalculatorComponent } from './components/days-calculator/days-calculator.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
@@ -28,7 +29,7 @@ import { AuthService } from './services/auth.service';
 
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faCoffee, fas } from '@fortawesome/free-solid-svg-icons';
-import { BudFinderComponent } from './bud-finder/bud-finder.component';
+
 // import { library } from '@fortawesome/fontawesome-svg-core';
 // import { faMugHot, faHeart,
 //     faTh, faThList,
