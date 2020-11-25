@@ -7,12 +7,12 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
-  // private user: Observable<firebase.User>;
   private user: firebase.User;
   authSubscription: any;
 
-  constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
+constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
     this.authSubscription = this.firebaseAuth.authState.subscribe( user => {
       if (user) {
         this.user = user;
@@ -24,12 +24,13 @@ export class AuthService {
     });
   }
 
-  get isAuthenticated(): boolean {
+get isAuthenticated(): boolean {
     console.log("User is authed");
     const user = JSON.parse(sessionStorage.getItem('cur-user'));
     console.log("Cur user: " + user);
     return user !== null;
 }
+
 async logout() {
   await this.firebaseAuth.signOut();
   sessionStorage.removeItem('cur-user');
@@ -39,7 +40,7 @@ async logout() {
   location.replace('login');
 }
 
-  signup(email: string, password: string) {
+signup(email: string, password: string) {
     this.firebaseAuth
       .createUserWithEmailAndPassword(email, password)
       .then(value => {
@@ -48,33 +49,16 @@ async logout() {
       .catch(err => {
         console.log('Something went wrong:',err.message);
       });
-  }
+}
 
-  async login(email: string, password: string) {
+async login(email: string, password: string) {
     try {
       await this.firebaseAuth.signInWithEmailAndPassword(email, password);
       console.log("Login in Auth Service called, moving to days");
       this.router.navigate(['days']);
       } catch (error) {
           sessionStorage.removeItem('cur-user');
-          this.router.navigate(['/login']);
+          this.router.navigate(['/register']);
       }
   }
-
-  // login(email: string, password: string) {
-
-  //   console.log("Calling Auth Service Login");
-  //   this.firebaseAuth
-  //     .signInWithEmailAndPassword(email, password)
-  //     .then(value => {
-  //       console.log('Nice, it worked!');
-  //     })
-  //     .catch(err => {
-  //       console.log('Something went wrong:',err.message);
-  //     });
-  // }
-
-  // logout() {
-  //   this.firebaseAuth.signOut();
-  // }
 }
