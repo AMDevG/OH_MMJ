@@ -8,15 +8,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private user: Observable<firebase.User>;
+  // private user: Observable<firebase.User>;
+  private user: firebase.User;
   authSubscription: any;
 
   constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
-    this.user = firebaseAuth.authState;
-
     this.authSubscription = this.firebaseAuth.authState.subscribe( user => {
       if (user) {
-        sessionStorage.setItem('cur-user', JSON.stringify(this.user));
+        this.user = user;
+        sessionStorage.setItem('cur-user', JSON.stringify(this.user.uid));
       }
       else{
         sessionStorage.setItem('cur-user', null);
@@ -27,6 +27,7 @@ export class AuthService {
   get isAuthenticated(): boolean {
     console.log("User is authed");
     const user = JSON.parse(sessionStorage.getItem('cur-user'));
+    console.log("Cur user: " + user);
     return user !== null;
 }
 async logout() {

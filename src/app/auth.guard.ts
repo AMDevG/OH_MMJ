@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
         return true;
       } else {
         console.log("Auth guard returning false, routing to login");
-        return this.router.navigate(['/login']);
+        return this.router.navigate(['/login']); 
       }
   }
   

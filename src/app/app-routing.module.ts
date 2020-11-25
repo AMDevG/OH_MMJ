@@ -11,10 +11,10 @@ import { LoginAuthGuard } from './login-auth.guard';
 
 const routes: Routes = [
   {path:'home', component: HomeComponent, canActivate: [AuthGuard]},
-  {path:'login',component:LoginComponent, canActivate: [AuthGuard]},
+  {path:'login',component:LoginComponent, canActivate: [LoginAuthGuard]},
   {path:'register',component:RegisterComponent, canActivate: [AuthGuard]},
   {path: 'days', component: DaysCalculatorComponent, canActivate: [AuthGuard]},
-  {path: 'find', component: BudFinderComponent, canActivate: [LoginAuthGuard]},
+  {path: 'find', component: BudFinderComponent, canActivate: [AuthGuard]},
   { path: '', redirectTo: 'login', pathMatch: 'full' }
 ];
 
