@@ -15,7 +15,7 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent, canActivate: [AuthGuard]},
   {path: 'days', component: DaysCalculatorComponent, canActivate: [AuthGuard]},
   {path: 'find', component: BudFinderComponent, canActivate: [AuthGuard]},
-  { path: '', redirectTo: 'login', pathMatch: 'full' }
+  { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({

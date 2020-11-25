@@ -15,8 +15,10 @@ export class AuthService {
 constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
     this.authSubscription = this.firebaseAuth.authState.subscribe( user => {
       if (user) {
+        console.log("In Auth contstructor");
         this.user = user;
         sessionStorage.setItem('cur-user', JSON.stringify(this.user.uid));
+        console.log("set session");
       }
       else{
         sessionStorage.setItem('cur-user', null);
@@ -40,6 +42,26 @@ async logout() {
   location.replace('login');
 }
 
+
+login(email: string, password: string) {
+
+      this.firebaseAuth
+        .signInWithEmailAndPassword(email, password)
+        .then(value => {
+          console.log('Nice, it worked!');
+          // this.user = user;
+          this.router.navigate(['days']);
+          // sessionStorage.setItem('cur-user', JSON.stringify(this.user.uid));
+          
+        })
+        .catch(err => {
+          sessionStorage.removeItem('cur-user');
+          console.log('Something went wrong in login:',err.message);
+          this.router.navigate(['/login']);
+        });
+      }
+
+
 signup(email: string, password: string) {
     this.firebaseAuth
       .createUserWithEmailAndPassword(email, password)
@@ -50,15 +72,4 @@ signup(email: string, password: string) {
         console.log('Something went wrong:',err.message);
       });
 }
-
-async login(email: string, password: string) {
-    try {
-      await this.firebaseAuth.signInWithEmailAndPassword(email, password);
-      console.log("Login in Auth Service called, moving to days");
-      this.router.navigate(['days']);
-      } catch (error) {
-          sessionStorage.removeItem('cur-user');
-          this.router.navigate(['/register']);
-      }
-  }
 }
