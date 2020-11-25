@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bud-finder',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BudFinderComponent implements OnInit {
 
-  constructor() { }
+  title = 'Flower Finder'
+  constructor(public authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }

@@ -11,8 +11,8 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent implements OnInit {
 
   loginForm:FormGroup;
-  email: string;
-  password: string;
+  // email: string;
+  // password: string;
 
   constructor(public authService: AuthService, private router: Router,
     public fb: FormBuilder) {
@@ -28,16 +28,18 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  doLogin(): void {
+  onSubmit(): void {
+    console.log("Calling authservice from login component");
     this.authService.login(this.loginForm.value.email, this.loginForm.value.password);
   }
 
-  signup() {
-    this.authService.signup(this.email, this.password);
-    this.email = this.password = '';
-  }
-  logout() {
-    this.authService.logout();
-  }
+  // signup() {
+  //   this.authService.signup(this.email, this.password);
+  //   this.email = this.password = '';
+  // }
+
+  // doSignin(email: string, password: string): void {
+  //   this.authService.login(email, password);
+  // }
 
 }

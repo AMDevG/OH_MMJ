@@ -1,5 +1,5 @@
 export interface User {
-    id?: string;
+    uid?: string;
     issueDate: Date;
     expirationDate: Date;
     daysRemainCurrFill: number;

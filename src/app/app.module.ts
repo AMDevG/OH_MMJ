@@ -22,7 +22,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 
-import { AuthService } from './services/auth.service';
+// import { AuthService } from './services/auth.service';
 
 
 // Font awesome imports
@@ -83,14 +83,14 @@ import { faCoffee, fas } from '@fortawesome/free-solid-svg-icons';
   ],
   providers: [
     MatDatepickerModule,
-    AuthService, AngularFireAuthModule],
+     AngularFireAuthModule],
     // CookieService,
     // {provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true}],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {
-  constructor(library: FaIconLibrary) {
+  constructor( library: FaIconLibrary) {
     library.addIconPacks(fas);
     library.addIcons(faCoffee);
  }
