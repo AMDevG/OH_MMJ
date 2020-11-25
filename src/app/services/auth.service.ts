@@ -19,6 +19,7 @@ constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
         this.user = user;
         sessionStorage.setItem('cur-user', JSON.stringify(this.user.uid));
         console.log("set session");
+        this.router.navigate(['/days']);
       }
       else{
         sessionStorage.setItem('cur-user', null);
@@ -27,7 +28,7 @@ constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
   }
 
 get isAuthenticated(): boolean {
-    console.log("User is authed");
+    console.log("In isAuthenticated() ");
     const user = JSON.parse(sessionStorage.getItem('cur-user'));
     console.log("Cur user: " + user);
     return user !== null;
@@ -37,7 +38,7 @@ async logout() {
   await this.firebaseAuth.signOut();
   sessionStorage.removeItem('cur-user');
   this.authSubscription.unsubscribe();
-  console.log('Router on logout: ', this.router.routerState.snapshot);
+  // console.log('Router on logout: ', this.router.routerState.snapshot);
   this.router.navigate(['/login']);
   location.replace('login');
 }
@@ -50,7 +51,7 @@ login(email: string, password: string) {
         .then(value => {
           console.log('Nice, it worked!');
           // this.user = user;
-          this.router.navigate(['days']);
+          // this.router.navigate(['/days']);
           // sessionStorage.setItem('cur-user', JSON.stringify(this.user.uid));
           
         })
