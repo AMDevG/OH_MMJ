@@ -1,12 +1,8 @@
 export interface User {
     uid?: string;
-    issueDate: Date;
-    expirationDate: Date;
-    daysRemainCurrFill: number;
+    county: Date;
+    email: Date;
     firstName: string;
     lastName: string;
-    email: string;
-    county: string;
-    createdOn: any;
-    updatedOn: any;
+    issueDate: string;
   }

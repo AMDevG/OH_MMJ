@@ -1,1 +1,19 @@
 <h1>Home</h1>
+<table>
+    <thead>
+      <th>Number</th>
+      <th>Created At</th>
+      <th>Expire At</th>
+      <th>Amount</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+  
+        <td>{{user.firstName}}</td>
+        <td>{{user.Lastname}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.issueDate}}</td>
+
+      </tr>
+    </tbody>
+  </table>
